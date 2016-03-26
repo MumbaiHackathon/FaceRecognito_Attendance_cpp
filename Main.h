@@ -6,6 +6,7 @@
 
 #include "CSV.cpp"
 #include "Train.cpp"
+#include "Predict.cpp"
 
 using namespace std;
 

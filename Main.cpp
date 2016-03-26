@@ -28,6 +28,7 @@ int main(int argc, char** argv)
     }
     else if(string(argv[1]) == "predict" && argc == 6)
     {
+        Predict(string(argv[2]), string(argv[3]), string(argv[4]), string(argv[5]));
         cout << "Predicting" << endl;
     }
     else if(string(argv[1]) == "update" && argc == 4)

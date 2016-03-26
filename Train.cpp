@@ -26,6 +26,7 @@ void Train(string InputFileName, string KnowledgeOutputFileName)
             LabelVector.push_back(stoi(ClassData[ii][0]));
         }
     }
-    
+ 
     /// Todo Create Recogintion model and train using training data.
+    /// Save Model to KnowledgeOutputFile
 }
