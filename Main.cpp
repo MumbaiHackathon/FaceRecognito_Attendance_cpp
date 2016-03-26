@@ -2,8 +2,7 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
-#include "CSV.cpp"
-#include "Train.cpp"
+#include "Main.h"
 
 using namespace std;    
 using namespace cv;
