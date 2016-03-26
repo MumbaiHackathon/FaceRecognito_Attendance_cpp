@@ -3,6 +3,7 @@
 #include <opencv2/highgui/highgui.hpp>
 
 #include "CSV.cpp"
+#include "Train.cpp"
 
 using namespace std;    
 using namespace cv;
@@ -23,6 +24,7 @@ int main(int argc, char** argv)
     }
     if(string(argv[1]) == "train" && argc == 4)
     {
+        Train(string(argv[2]), string(argv[3]));
         cout << "Training" << endl;
     }
     else if(string(argv[1]) == "predict" && argc == 6)
