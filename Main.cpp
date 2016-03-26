@@ -2,7 +2,9 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
-using namespace std;
+#include "CSV.cpp"
+
+using namespace std;    
 using namespace cv;
 int main(int argc, char** argv)
 {
@@ -19,9 +21,18 @@ int main(int argc, char** argv)
         cout << "  syntax : " << argv[0] << " update <InputFile> <KnowledgeFile>" << endl;
         return -1;
     }
-    if(string(argv[1]) == "train" && argc == 4) cout << "Training" << endl;
-    else if(string(argv[1]) == "predict" && argc == 6) cout << "Predicting" << endl;
-    else if(string(argv[1]) == "update" && argc == 4) cout << "Updating" << endl;
+    if(string(argv[1]) == "train" && argc == 4)
+    {
+        cout << "Training" << endl;
+    }
+    else if(string(argv[1]) == "predict" && argc == 6)
+    {
+        cout << "Predicting" << endl;
+    }
+    else if(string(argv[1]) == "update" && argc == 4)
+    {
+        cout << "Updating" << endl;
+    }
     else
     {
         cout << "Invalid Command" << endl;
