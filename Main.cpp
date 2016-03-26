@@ -12,11 +12,20 @@ int main(int argc, char** argv)
         cout << "Usage : <command> [<args>]" << endl;
         cout << "List of commands :" << endl << endl;
         cout << "train" << endl;
-        cout << "  syntax : " << argv[0] << "train <InputFile> <KnowledgeOutputFile>" << endl << endl;
+        cout << "  syntax : " << argv[0] << " train <InputFile> <KnowledgeOutputFile>" << endl;
         cout << "predict" << endl;
-        cout << "  syntax : " << argv[0] << "predict <InputFile> <KnowledgeInputFile> <SuccessOutputFile> <ErrorOutputFile>" << endl << endl;
+        cout << "  syntax : " << argv[0] << " predict <InputFile> <KnowledgeInputFile> <SuccessOutputFile> <ErrorOutputFile>" << endl;
         cout << "update" << endl;
-        cout << "  syntax : " << argv[0] << "update <InputFile> <KnowledgeFile>" << endl << endl;
+        cout << "  syntax : " << argv[0] << " update <InputFile> <KnowledgeFile>" << endl;
+        return -1;
     }
-    return 0;
+    if(string(argv[1]) == "train") cout << "Training" << endl;
+    else if(string(argv[1]) == "predict") cout << "Predicting" << endl;
+    else if(string(argv[1]) == "update") cout << "Updating" << endl;
+    else
+    {
+        cout << "Invalid Command" << endl;
+        return -1;
+    }
+   return 0;
 }
