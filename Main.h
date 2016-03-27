@@ -4,6 +4,7 @@
 #include<vector>
 #include<string>
 
+#include "Config.h"
 #include "CSV.cpp"
 #include "Train.cpp"
 #include "Predict.cpp"
