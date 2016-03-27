@@ -35,11 +35,13 @@ void Train(string InputFileName, string KnowledgeOutputFileName)
     cout << "Reading Images" << endl;
         for( int jj = 0 ; jj < StudentData.size() ; jj++ )
     {
-        Mat Raw = imread(StudentData[jj][1].c_str(),0);
+        Mat Raw;
+        Mat Color = imread(StudentData[jj][1].c_str());
+        cvtColor( Color, Raw, CV_BGR2GRAY );
         vector<Rect> Faces;
 
         //Detect face using cascade classifier
-        FaceCascade.detectMultiScale(Raw, Faces, 1.1, 2, 0, Size(0,0), Size(2048,2048));
+        FaceCascade.detectMultiScale(Raw, Faces, 1.1, 2, 0, Size(100,100), Size(500,500));
 
         if(Faces.size() != 1) continue;
 
@@ -50,6 +52,7 @@ void Train(string InputFileName, string KnowledgeOutputFileName)
         Mat Resized;
         resize(Cropped,Resized,IMAGE_SIZE);
         //Create Training Vectors
+        
         ImageVector.push_back(Resized);
         LabelVector.push_back(stoi(StudentData[jj][0]));
     }
