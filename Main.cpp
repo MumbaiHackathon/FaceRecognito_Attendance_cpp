@@ -33,6 +33,7 @@ int main(int argc, char** argv)
     }
     else if(string(argv[1]) == "update" && argc == 4)
     {
+        Update(string(argv[2]), string(argv[3]));
         cout << "Updating" << endl;
     }
     else

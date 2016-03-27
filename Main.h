@@ -7,6 +7,7 @@
 #include "CSV.cpp"
 #include "Train.cpp"
 #include "Predict.cpp"
+#include "Update.cpp"
 
 using namespace std;
 
