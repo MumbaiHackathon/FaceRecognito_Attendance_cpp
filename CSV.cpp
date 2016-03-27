@@ -23,3 +23,19 @@ vector<vector<string>> ReadCSVFile(string FileName)
         CSVData.push_back(DataLine);
     }
 }
+
+void WriteCSVFile(vector<vector<string>> CSVData, string FileName)
+{
+    ofstream CSVFile;
+    CSVFile.open(FileName);
+    for(int ii = 0 ; ii < CSVData.size() ; ii++ )
+    {
+        for(int jj = 0 ; jj < CSVData[ii].size() ; jj++ )
+        {
+            CSVFile << CSVData[ii][jj];
+            if( jj != CSVData[ii].size() - 1)
+                CSVFile << ",";
+        }
+        CSVFile << endl;
+    }
+}
