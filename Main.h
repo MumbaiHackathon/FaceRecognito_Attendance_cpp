@@ -13,4 +13,6 @@ using namespace std;
 
 vector<vector<string>> ReadCSVFile(string FileName);
 void Train(string InputFileName, string KnowledgeOutputFileName);
+void Predict(string InputFileName, string KnowledgeInputFileName, string SuccessOutputFileName, string ErrorOutputFileName);
+void Update(string InputFileName, string KnowledgeFileName);
 #endif
