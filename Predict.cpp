@@ -26,7 +26,7 @@ void Predict(string InputFileName, string KnowledgeInputFileName, string Success
     vector<vector<string>> RawImageNames = ReadCSVFile(InputFileName);
     for( int ii = 0 ; ii < RawImageNames.size() ; ii++ )
     {
-        RawImageVector.push_back(imread(RawImageNames[ii].c_str(),0));
+        RawImageVector.push_back(imread(RawImageNames[ii][0].c_str(),0));
     }
 
     // Make Prediction and Confidence vector
