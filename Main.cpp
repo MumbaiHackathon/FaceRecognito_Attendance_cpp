@@ -27,18 +27,18 @@ int main(int argc, char** argv)
     }
     if(string(argv[1]) == "train" && argc == 4)
     {
-        Train(string(argv[2]), string(argv[3]));
         cout << "Training" << endl;
+        Train(string(argv[2]), string(argv[3]));
     }
     else if(string(argv[1]) == "predict" && argc == 6)
     {
-        Predict(string(argv[2]), string(argv[3]), string(argv[4]), string(argv[5]));
         cout << "Predicting" << endl;
+        Predict(string(argv[2]), string(argv[3]), string(argv[4]), string(argv[5]));
     }
     else if(string(argv[1]) == "update" && argc == 4)
     {
-        Update(string(argv[2]), string(argv[3]));
         cout << "Updating" << endl;
+        Update(string(argv[2]), string(argv[3]));
     }
     else
     {
