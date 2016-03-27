@@ -73,8 +73,6 @@ void Predict(string InputFileName, string KnowledgeInputFileName, string Success
             ImageAttendance.push_back(find(PredictionMatrix[ii].begin(), PredictionMatrix[ii].end(), jj) != PredictionMatrix[ii].end());
         AttendanceMatrix.push_back(ImageAttendance);
     }
-    
-    
     for(int ii = 0 ; ii < AttendanceMatrix.size() ; ii++)
     {
         cout << RawImageNames[ii][0] << " ";
