@@ -15,26 +15,31 @@ using namespace cv::face;
 
 void Predict(string InputFileName, string KnowledgeInputFileName, string SuccessOutputFileName, string ErrorOutputFileName)
 {
-    // Todo Read KnowledgeInputFile and load Recognition model
+    // Read KnowledgeInputFile and load Recognition model
+    Ptr<FaceRecognizer> RecognitionModel = createFisherFaceRecognizer();
+    RecognitionModel->load(KnowledgeInputFileName);
 
     vector<Mat> RawImageVector;// contains uncropped images
 
     // Read Input CSV file to get list of class images
-    // Crop them
+    // Generate RawImageVector from images
     vector<vector<string>> RawImageNames = ReadCSVFile(InputFileName);
     for( int ii = 0 ; ii < RawImageNames.size() ; ii++ )
     {
-        vector<Mat> CroppedImages;
-        //
-        // FIll this container with cropped faces of students from RawImageNames[ii]
-        //
-        for( int jj = 0 ; jj < CroppedImages.size() ; jj++ )
-        {
-          int Prediction = -1;
-          double Confidence = 0.0;
+        RawImageVector.push_back(imread(RawImageNames[ii].c_str(),0));
+    }
 
-          // Todo make prediction using Recognition model
-          // Todo Do something with the prediction
-        }
+    // Make Prediction and Confidence vector
+    vector<int> PredictionVector;// contains uncropped images
+    vector<double> ConfidenceVector;// contains uncropped images
+
+    //Iterate over all images, make predictions and fill PredictionVector and ConfidenceVectors
+    for( int ii = 0 ; ii < RawImageVector.size() ; ii++ )
+    {
+        int Prediction = -1;
+        double Confidence = 0.0;
+        RecognitionModel->predict(RawImageVector[ii],Prediction, Confidence);
+        PredictionVector.push_back(Prediction);
+        ConfidenceVector.push_back(Confidence);
     }
 }
