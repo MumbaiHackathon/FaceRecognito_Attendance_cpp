@@ -1,11 +1,15 @@
 #include <iostream>
-#include <opencv2/core/core.hpp>
-#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/core.hpp>
+#include <opencv2/face.hpp>
+#include <opencv2/highgui.hpp>
+#include <opencv2/imgproc.hpp>
+#include <opencv2/objdetect.hpp>
 
+using namespace std;
+using namespace cv;
+using namespace cv::face;
 #include "Main.h"
 
-using namespace std;    
-using namespace cv;
 int main(int argc, char** argv)
 {
     if(argc < 4)
