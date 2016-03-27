@@ -26,7 +26,12 @@ void Predict(string InputFileName, string KnowledgeInputFileName, string Success
     vector<vector<string>> RawImageNames = ReadCSVFile(InputFileName);
     for( int ii = 0 ; ii < RawImageNames.size() ; ii++ )
     {
-        RawImageVector.push_back(imread(RawImageNames[ii][0].c_str(),0));
+        // Resize Image
+        Mat Raw = imread(RawImageNames[ii][0].c_str(),0);
+        Mat Resized;
+        resize(Raw,Resized,IMAGE_SIZE);
+        
+        RawImageVector.push_back(Resized);
     }
 
     // Make Prediction and Confidence vector
@@ -36,9 +41,11 @@ void Predict(string InputFileName, string KnowledgeInputFileName, string Success
     //Iterate over all images, make predictions and fill PredictionVector and ConfidenceVectors
     for( int ii = 0 ; ii < RawImageVector.size() ; ii++ )
     {
+        if( ii % 100 == 0) cout << ii << "/" << RawImageVector.size() << endl;
         int Prediction = -1;
         double Confidence = 0.0;
         RecognitionModel->predict(RawImageVector[ii],Prediction, Confidence);
+        cout << RawImageNames[ii][0] << " " << Prediction << " " << Confidence <<endl;
         PredictionVector.push_back(Prediction);
         ConfidenceVector.push_back(Confidence);
     }

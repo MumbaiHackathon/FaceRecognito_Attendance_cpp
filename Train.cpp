@@ -18,12 +18,35 @@ void Train(string InputFileName, string KnowledgeOutputFileName)
     vector<Mat> ImageVector;
     vector<int> LabelVector;
 
+    // Create and Load Face Cascade classifier
+    CascadeClassifier FaceCascade;
+    string FaceCascadeName = "haarcascade_frontalface_alt.xml";
+    FaceCascade.load(FaceCascadeName);
+
     // Read Student CSV file to get list of his/her images
+    cout << "Reading CSV File" << endl;
     vector<vector<string>> StudentData = ReadCSVFile(InputFileName);
+    cout << "Done Reading CSV File" << endl;
+
+    cout << "Reading Images" << endl;
     for( int jj = 0 ; jj < StudentData.size() ; jj++ )
     {
+        Mat Raw = imread(StudentData[jj][1].c_str(),0);
+        vector<Rect> Faces;
+
+        //Detect face using cascade classifier
+        FaceCascade.detectMultiScale(Raw, Faces, 1.1, 2, 0, Size(0,0), Size(2048,2048));
+
+        if(Faces.size() != 1) continue;
+
+        // Crop Image according to the detected face
+        Mat Cropped = Raw(Faces[0]);
+               
+        // Resize the cropped Image to predecided size
+        Mat Resized;
+        resize(Cropped,Resized,IMAGE_SIZE);
         //Create Training Vectors
-        ImageVector.push_back(imread(StudentData[jj][1].c_str(),0));
+        ImageVector.push_back(Cropped);
         LabelVector.push_back(stoi(StudentData[jj][0]));
     }
 
@@ -33,4 +56,5 @@ void Train(string InputFileName, string KnowledgeOutputFileName)
 
     /// Save Model to KnowledgeOutputFile
     RecognitionModel->save(KnowledgeOutputFileName);
+    cout << "Done Training" << endl;
 }

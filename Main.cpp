@@ -45,5 +45,6 @@ int main(int argc, char** argv)
         cout << "Invalid Command" << endl;
         return -1;
     }
-   return 0;
+    cout << "Exiting" << endl;
+    return 0;
 }

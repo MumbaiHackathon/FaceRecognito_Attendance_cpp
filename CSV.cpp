@@ -29,6 +29,7 @@ vector<vector<string>> ReadCSVFile(string FileName)
             DataLine.push_back(Cell);
         CSVData.push_back(DataLine);
     }
+    return CSVData;
 }
 
 void WriteCSVFile(vector<vector<string>> CSVData, string FileName)
