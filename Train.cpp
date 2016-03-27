@@ -24,9 +24,13 @@ void Train(string InputFileName, string KnowledgeOutputFileName)
     {
         //Create Training Vectors
         ImageVector.push_back(imread(StudentData[jj][1].c_str(),0));
-        LabelVector.push_back(stoi(StudentData[jji][0]));
+        LabelVector.push_back(stoi(StudentData[jj][0]));
     }
 
     /// Todo Create Recogintion model and train using training data.
+    Ptr<FaceRecognizer> RecognitionModel = createFisherFaceRecognizer();
+    RecognitionModel->train(ImageVector,LabelVector);
+
     /// Save Model to KnowledgeOutputFile
+    RecognitionModel->save(KnowledgeOutputFileName);
 }
