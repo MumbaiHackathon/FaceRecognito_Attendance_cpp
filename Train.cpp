@@ -19,17 +19,21 @@ void Train(string InputFileName, string KnowledgeOutputFileName)
     vector<int> LabelVector;
 
     // Create and Load Face Cascade classifier
-    CascadeClassifier FaceCascade;
-    string FaceCascadeName = "haarcascade_frontalface_alt.xml";
-    FaceCascade.load(FaceCascadeName);
+    CascadeClassifier FaceCascade("/usr/local/share/OpenCV/haarcascades/haarcascade_frontalface_default.xml");
 
+    if ( FaceCascade.empty() )
+    { 
+        cout << "Error loading cascade file" << endl;
+        return;
+    }
+    
     // Read Student CSV file to get list of his/her images
     cout << "Reading CSV File" << endl;
     vector<vector<string>> StudentData = ReadCSVFile(InputFileName);
     cout << "Done Reading CSV File" << endl;
 
     cout << "Reading Images" << endl;
-    for( int jj = 0 ; jj < StudentData.size() ; jj++ )
+        for( int jj = 0 ; jj < StudentData.size() ; jj++ )
     {
         Mat Raw = imread(StudentData[jj][1].c_str(),0);
         vector<Rect> Faces;
@@ -46,7 +50,7 @@ void Train(string InputFileName, string KnowledgeOutputFileName)
         Mat Resized;
         resize(Cropped,Resized,IMAGE_SIZE);
         //Create Training Vectors
-        ImageVector.push_back(Cropped);
+        ImageVector.push_back(Resized);
         LabelVector.push_back(stoi(StudentData[jj][0]));
     }
 
