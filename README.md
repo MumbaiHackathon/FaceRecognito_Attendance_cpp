@@ -1,3 +1,5 @@
+# FaceRecognito_Attendance
+
 FaceRecognito_Attendance is an open source application for implementing automated student attendance system in classrooms using facial recognition
 
 FaceRecognito_Attendance also has (open source) web based interface available at [FaceRecognito_Attendance_web](https://github.com/scmmishra/FaceRecognito_Attendance_web)
@@ -41,7 +43,7 @@ goto build directory and execute
 
 ### Predicting
 ```bash
-./Main train <InputCSVFile> <InputKnowledgeFile> <OutputSuccessFile> <OutputErrorFile>
+./Main predict <InputCSVFile> <InputKnowledgeFile> <OutputSuccessFile> <OutputErrorFile>
 ```
 * InputCSVFile must contain path to images containing faces to be recognized (one or more faces per image) in csv format
 
