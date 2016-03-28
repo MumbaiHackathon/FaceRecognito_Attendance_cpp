@@ -33,9 +33,9 @@ goto build directory and execute
 ```bash
 ./Main train <InputCSVFile> <OutputKnowledgeFile>
 ```
---- InputCSVFile must contain path to facial images of individuals (one face per image) and labels (integer labels) of individuals in those images in csv format
+InputCSVFile must contain path to facial images of individuals (one face per image) and labels (integer labels) of individuals in those images in csv format
 
---- OutputKnowledgeFile is created by FaceRecognito_Attendance after training procedure is completed to store learnt faces in xml/yaml format
+OutputKnowledgeFile is created by FaceRecognito_Attendance after training procedure is completed to store learnt faces in xml/yaml format
 
 ### Predicting
 ```bash
