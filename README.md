@@ -35,21 +35,21 @@ goto build directory and execute
 ```bash
 ./Main train <InputCSVFile> <OutputKnowledgeFile>
 ```
-⋅⋅⋅InputCSVFile must contain path to facial images of individuals (one face per image) and labels (integer labels) of individuals in those images in csv format
+* InputCSVFile must contain path to facial images of individuals (one face per image) and labels (integer labels) of individuals in those images in csv format
 
-⋅⋅⋅OutputKnowledgeFile is created by FaceRecognito_Attendance after training procedure is completed to store learnt faces in xml/yaml format
+* OutputKnowledgeFile is created by FaceRecognito_Attendance after training procedure is completed to store learnt faces in xml/yaml format
 
 ### Predicting
 ```bash
 ./Main train <InputCSVFile> <InputKnowledgeFile> <OutputSuccessFile> <OutputErrorFile>
 ```
-⋅⋅⋅InputCSVFile must contain path to images containing faces to be recognized (one or more faces per image) in csv format
+* InputCSVFile must contain path to images containing faces to be recognized (one or more faces per image) in csv format
 
-⋅⋅⋅InputKnowledgeFile is the file created by FaceRecognito_Attendance during training procedure, FaceRecognito_Attendance will use knowledge stored in this file for recognizing faces.
+* InputKnowledgeFile is the file created by FaceRecognito_Attendance during training procedure, FaceRecognito_Attendance will use knowledge stored in this file for recognizing faces.
 
-⋅⋅⋅OuputSuccessFile is created by FaceRecognito_Attendance after prediction procedure and contains list of individuals successfully recognized in each image in csv format
+* OuputSuccessFile is created by FaceRecognito_Attendance after prediction procedure and contains list of individuals successfully recognized in each image in csv format
 
-⋅⋅⋅OuputErrorFile is created by FaceRecognito_Attendance after prediction procedure and contains list of faces FaceRecognito_Attendance faild to recognize in each image in csv format
+* OuputErrorFile is created by FaceRecognito_Attendance after prediction procedure and contains list of faces FaceRecognito_Attendance faild to recognize in each image in csv format
 
 ### Updating
 (Yet to be implemented)
